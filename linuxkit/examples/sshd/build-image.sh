@@ -8,10 +8,7 @@
 {{ $output := `sshd.yml` }}
 
 {{/* load the file as the public key */}}
-{{/* $keyFile := cat $keyDir `/` $keyFile | nospace */}}
-
 {{ $keyFile := list `file://` $keyDir $keyFile | join `/` }}
-
 echo "Reading from {{ $keyFile }}"
 
 {{ include $keyFile | var `public_key` }}

@@ -102,7 +102,7 @@ services:
       - CAP_SYS_CHROOT
       - CAP_SETUID
       - CAP_SETGID
-    net: host 
+    net: host
   - name: docker
     image: "linuxkit/docker-ce:741bf21513328f674e0cdcaa55492b0b75974e08"
     capabilities:
@@ -114,9 +114,20 @@ services:
     binds:
      - /var/lib/docker:/var/lib/docker
      - /lib/modules:/lib/modules
+  - name: sshd
+    image: "linuxkit/sshd:e108d208adf692c8a0954f602743e0eec445364e"
+    capabilities:
+     - all
+    net: host
+    pid: host
+    binds:
+     - /root/.ssh:/root/.ssh
+     - /etc/resolv.conf:/etc/resolv.conf
 files:
   - path: etc/docker/daemon.json
     contents: '{"debug": true}'
+  - path: root/.ssh/authorized_keys
+    contents: {{ var `public_key` }}
 trust:
   image:
     - linuxkit/kernel
