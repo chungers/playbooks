@@ -15,6 +15,10 @@ stop  : stop-infrakit.sh
 # sshd example
 demo-sshd : examples/sshd/index.yml
 
+# Docker example
+demo-docker : examples/docker/index.yml
+
+
 # Examples
 #examples : examples/index.yml
 
