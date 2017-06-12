@@ -2,4 +2,6 @@
 
 build-image : build-image.sh
 
+# hyperkit commands
+hyperkit : hyperkit/index.yml
 

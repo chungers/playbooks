@@ -3,7 +3,7 @@
 
 {{ $project := var "/project" | flag "project" "string" "Project name" | prompt "Project?" "string" "myproject" }}
 {{ $linuxkitPath := flag "bundle-path" "string" "Bundle directory" | prompt "Bundle directory?" "string" (env "PWD") }}
-{{ $bundle := flag "bundle" "string" "Bundle prefix" | prompt "Bundle prefix?" "string" "sshd"}}
+{{ $bundle := flag "bundle" "string" "Bundle prefix" | prompt "Bundle prefix?" "string" "docker"}}
 {{ $privateIP := flag "private-ip" "string" "Private IP" | prompt "Private IP address (IPv4)?" "string" "192.168.65.101" nil }}
 
 {{ $cpus := flag "cpus" "int" "CPUs" | prompt "How many CPUs?" "int" 1 }}
